@@ -1,0 +1,389 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 10, 2020 at 07:05 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.1.27
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `form`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `details`
+--
+
+CREATE TABLE `details` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `email` varchar(70) NOT NULL,
+  `mobile_num` int(11) NOT NULL,
+  `dob` date NOT NULL,
+  `gender` varchar(50) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `hobbies` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `details`
+--
+
+INSERT INTO `details` (`id`, `first_name`, `last_name`, `email`, `mobile_num`, `dob`, `gender`, `address`, `hobbies`) VALUES
+(6, 'haris', 'kumar', 'haris@gmail.com', 1, '2020-02-03', 'male', 'bjjkb', 'a:3:{i:0;s:15:\"Watching Movies\";i:1;s:16:\"Playing Football\";i:2;s:19:\"Listening to Musics\";}'),
+(7, 'Riya', 'Nakarmi', 'riya@gmail.com', 2147483647, '2020-02-10', 'female', 'mainroad', 'a:3:{i:0;s:18:\"Playing Basketball\";i:1;s:15:\"Watching Movies\";i:2;s:19:\"Listening to Musics\";}');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `details`
+--
+ALTER TABLE `details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `details`
+--
+ALTER TABLE `details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+<html>
+    <head>
+        <title>Simple Form</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+
+        
+        <script>
+          // function validateForm() {
+          
+          //   var fname = document.forms["myForm"]["fname"].value;
+          //   var lname = document.forms["myForm"]["lname"].value;
+          //   var email = document.forms["myForm"]["email"].value;
+          //   var num = document.forms["myForm"]["phone"].value;
+          //   var date = document.forms["myForm"]["date"].value;
+          //   var gender = document.forms["myForm"]["gender"].value;
+          //   var address = document.forms["myForm"]["address"].value;
+          //   var hobby = document.forms["myForm"]["hobby[]"];
+          //  console.log(hobby);
+          //  for(i=0;i<hobby.length;i++){
+          //    if(hobby[i].checked==true){
+          //      alert("success");
+          //      break;
+          //    }else{
+          //      count=1;
+          //    }
+          //  }
+          //  if(count==1){
+          //    alert ("unsuccess");
+          //  }
+            
+
+            // if (fname == "" && lname=="" && email=="" && num==""&& date=="" && gender=="" && address=="" && hobby=="" ) {
+            //   alert("All fields must be filled out");
+            //   return false;
+            // }
+
+            // if (fname == "") {
+            //   alert("Firstname must be filled out");
+            //   return false;
+            // }
+            // if (lname == "") {
+            //   alert("Lastname must be filled out");
+            //   return false;
+            // }
+            // if (email == "") {
+            //   alert("Email must be filled out");
+            //   return false;
+            // }
+            // if (num == "") {
+            //   alert("Phone number must be filled out");
+            //   return false;
+            // }
+            // if (date == "") {
+            //   alert("Date must be selected");
+            //   return false;
+            // }
+            
+            // if (gender == "") {
+            //   alert("Gender must be selected");
+            //   return false;
+            // }
+            // if (address == "") {
+            //   alert("Address must be filled out");
+            //   return false;
+            // }
+
+            // if (hobby="") {
+            //   alert("At least one hobby must be selected");
+            //   return false;
+            // }
+
+          //}
+          </script>
+    </head>
+
+    <body class="container" style="background-image: url(img.jpg);">
+    <div class="container">
+    <a href="biodata.php"><button type="button" class="btn btn-primary btn-lg" >View Data</button></a>
+    </div>
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        
+
+        <form name="myForm" onsubmit="return validateForm()" action="./entryBiodata.Controller.php" method="POST" style="background-color:rgb(190, 215, 229); ">
+          <div class="col-sm-12"> 
+          <h1 class="border-bottom center pb-3 mb-4" style="text-align: center;">Simple Form</h1>
+        </div> 
+
+                <div class="form-group row">
+                  <div class="col-sm-1"></div>
+                    <label class="col-sm-3" for="firstName">First Name:</label>
+                    <div class="col-sm-7">
+                        <input type="text" name="fname" class="form-control" id="firstName" placeholder="First Name" required >
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-1"></div>
+                    <label class="col-sm-3 " for="lastName">Last Name:</label>
+                    <div class="col-sm-7">
+                        <input type="text" name="lname" class="form-control" id="lastName" placeholder="Last Name" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-1"></div>
+                    <label class="col-sm-3 " for="inputEmail">Email Address:</label>
+                    <div class="col-sm-7">
+                        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email Address" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-1"></div>
+                    <label class="col-sm-3 " for="phoneNumber">Mobile Number:</label>
+                    <div class="col-sm-7">
+                        <input type="number" name="phone" class="form-control" id="phoneNumber" placeholder="Phone Number" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-1"></div>
+                    <label class="col-sm-3">Date of Birth:</label>
+                    <div class="col-sm-3">
+                      <input type="date"  name="date" required>
+                      </div>
+                        
+                </div>
+               
+               
+                <div class="form-group row">
+                  <div class="col-sm-1"></div>
+                    <label class="col-sm-3 ">Gender:</label>
+                    <div class="col-sm-7 ">
+                        <label class="mb-0 mr-3">
+                            <input type="radio" class="mr-1" name="gender" value="male"> Male
+                        </label>
+                        <label class="mb-0 mr-3">
+                            <input type="radio" class="mr-1" name="gender" value="female"> Female
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-sm-1"></div>
+                  <label class="col-sm-3 " for="address">Address:</label>
+                  <div class="col-sm-7">
+                      <input type="text" name="address" class="form-control" id="address" placeholder="Your Address" required>
+                  </div>
+              </div>
+
+                <div class="form-group row">
+                  <div class="col-sm-1"></div>
+                  <label class="col-sm-3 " >Hobbies:</label>
+                  <div class="col-sm-6">
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input class="custom-control-input" type="checkbox" id="exampleInlineCheckbox1" name="hobby[]" value="Reading Books">
+                      <label class="custom-control-label" for="exampleInlineCheckbox1">Reading Books</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input class="custom-control-input" type="checkbox" id="exampleInlineCheckbox2" name="hobby[]" value="Playing Basketball" >
+                      <label class="custom-control-label" for="exampleInlineCheckbox2">Playing Basketball</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input class="custom-control-input" type="checkbox" id="exampleInlineCheckbox3" name="hobby[]" value="Watching Movies" >
+                      <label class="custom-control-label" for="exampleInlineCheckbox3">Watching Movies</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input class="custom-control-input" type="checkbox" id="exampleInlineCheckbox4" name="hobby[]" value="Playing Football" >
+                      <label class="custom-control-label" for="exampleInlineCheckbox4">Playing Football</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input class="custom-control-input" type="checkbox" id="exampleInlineCheckbox5" name="hobby[]" value="Listening to Musics" >
+                      <label class="custom-control-label" for="exampleInlineCheckbox5">Listening to Musics</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input class="custom-control-input" type="checkbox" id="exampleInlineCheckbox6" name="hobby[]" value="Cooking" >
+                      <label class="custom-control-label" for="exampleInlineCheckbox6">Cooking</label>
+                    </div>
+                  </div>
+              </div>
+                
+                <div class="form-group row">
+                  <div class="col-sm-1"></div>
+                    <div class="col-sm-8 ">
+                        <input type="submit" class="btn btn-dark" value="Submit">
+                      </div>
+                      <div class="col-sm-3">
+                        <input type="reset" class="btn btn-dark" value="Reset">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-sm-9 offset-sm-3">
+                     
+                  </div>
+              </div>
+    
+          </form>
+        
+          </div>
+          </div>
+    </body>
+
+</html>
+
+
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+    </head>
+
+
+    <body style="background-image: url(img.jpg);">
+    <div class="container">
+    <a href="index.php"><button type="button" class="btn btn-primary btn-lg" >Add Data</button></a>
+    </div>
+    <div class="container">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Address</th>
+                <th scope="col">Hobbies</th>
+            </tr>
+            <?php 
+                include_once"config.php";
+                $sql=mysqli_query($conn,"SELECT * FROM details");
+
+                while($row=mysqli_fetch_assoc($sql)){
+                    $unserializeHobby=unserialize($row['hobbies']);
+
+           ?>
+
+        </thead>
+        <tbody>
+            <tr>
+                <td><?=$row["first_name"] ?></td>
+                <td><?=$row["last_name"] ?></td>
+                <td><?=$row["email"] ?></td>
+                <td><?=$row["mobile_num"] ?></td>
+                <td><?=$row["dob"] ?></td>
+                <td><?=$row["gender"] ?></td>
+                <td><?=$row["address"] ?></td>
+                <td><?php 
+                        foreach ($unserializeHobby as $key => $value){
+                            echo $value.", ";
+                        }
+                    ?>
+                </td>
+            </tr>
+            <?php 
+                }
+            ?>
+           
+        </tbody>
+    </table>
+    </div>
+    </body>
+
+</html>
+
+
+<?php
+$hostname="localhost";
+$username="root";
+$password="";
+$dbname="form";
+
+$conn=mysqli_connect($hostname, $username,$password,$dbname);
+
+// if($conn){
+//     echo "success";
+// }
+// else{
+//     echo "unsuccess";
+// }
+
+?>
+<?php
+include_once "./config.php";
+
+$fname=$_POST["fname"];
+$lname=$_POST["lname"];
+$email=$_POST["email"];
+$phone=$_POST["phone"];
+$date=$_POST["date"];
+$gender=$_POST["gender"];
+$address=$_POST["address"];
+$hobby=$_POST["hobby"];
+
+$hobbyInString=serialize($hobby);
+
+$sql="Insert into details(first_name,last_name,email,mobile_num,dob,gender,address,hobbies) values('$fname','$lname','$email','$phone','$date','$gender','$address','".$hobbyInString."')";
+//execute query command
+$checkResult= mysqli_query($conn, $sql);
+
+if($checkResult){
+   // echo "Successfully entered!";
+    header("Location: ./biodata.php");
+}
+else{
+    echo "Unsuccessful!!";
+}
+
+
+?>
